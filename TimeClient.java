@@ -18,9 +18,10 @@ public class TimeClient
 	    System.exit(1);
 	}
 	
+	boolean connected = false;
 	int i = 0;
 	
-	while(i != args.length - 1) {
+	while(i != args.length - 1 && !connected) {
 	    try {
 	    	String host = args[i];
 	    	int port = Integer.parseInt(args[i+1]);
@@ -30,6 +31,7 @@ public class TimeClient
 
 	    	Date date = (Date) oin.readObject();
 	    	System.out.println("Time on host " + host + " is " + date);
+	    	connected = true;
 	    } catch (IOException e1) {
 	    	System.out.println(e1);
 	    } catch (ClassNotFoundException e2) {
