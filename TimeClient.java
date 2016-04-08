@@ -21,7 +21,7 @@ public class TimeClient
 	while(count != args.length - 1) {
 	    try {
 	    	String host = args[i];
-	    	int port = args[i+1];
+	    	int port = Integer.parseInt(args[i+1]);
 	    	Socket s = new Socket(host, port);
 		InputStream in = s.getInputStream();
 	    	ObjectInput oin = new ObjectInputStream(in);
