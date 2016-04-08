@@ -21,7 +21,7 @@ public class TimeClient
 	boolean connected = false;
 	int i = 0;
 	
-	while(i != args.length - 1 && !connected) {
+	while(i <= (args.length - 2) && !connected) {
 	    try {
 	    	String host = args[i];
 	    	int port = Integer.parseInt(args[i+1]);
@@ -37,6 +37,7 @@ public class TimeClient
 	    } catch (ClassNotFoundException e2) {
 	     	System.out.println(e2);
 	    }
+	    i++;
 	    i++;
 	}
     }
