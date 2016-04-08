@@ -18,6 +18,8 @@ public class TimeClient
 	    System.exit(1);
 	}
 	
+	count = 0;
+	
 	while(count != args.length - 1) {
 	    try {
 	    	String host = args[i];
@@ -35,6 +37,7 @@ public class TimeClient
 	    	failed = true;
 	     	System.out.println(e2);
 	    }
+	    count++;
 	}
     }
 }
