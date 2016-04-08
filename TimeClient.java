@@ -20,7 +20,7 @@ public class TimeClient
 	
 	int i = 0;
 	
-	while(count != args.length - 1) {
+	while(i != args.length - 1) {
 	    try {
 	    	String host = args[i];
 	    	int port = Integer.parseInt(args[i+1]);
@@ -35,7 +35,7 @@ public class TimeClient
 	    } catch (ClassNotFoundException e2) {
 	     	System.out.println(e2);
 	    }
-	    count++;
+	    i++;
 	}
     }
 }
