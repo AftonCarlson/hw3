@@ -14,7 +14,7 @@ public class TimeClient
     public static void main(String args[]) 
     {
 	if (args.length < 2) {
-	    System.err.println("Usage: java TimeClient <serverhost> <port> <serverhost2> <port2>");
+	    System.err.println("Usage: java TimeClient <serverhost> <port> <serverhost2> <port2> ...");
 	    System.exit(1);
 	}
 	
