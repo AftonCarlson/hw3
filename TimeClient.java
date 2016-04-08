@@ -13,43 +13,27 @@ public class TimeClient
 {
     public static void main(String args[]) 
     {
-	if (args.length != 4) {
+	if (args.length < 2) {
 	    System.err.println("Usage: java TimeClient <serverhost> <port> <serverhost2> <port2>");
 	    System.exit(1);
 	}
-	String host1 = args[0];
-	int port1 = Integer.parseInt(args[1]);
-	String host2 = args[2];
-	int port2 = Integer.parseInt(args[3]);
-	boolean failed = false;
 	
-	try {
-	    Socket s = new Socket(host1, port1);
-	    InputStream in = s.getInputStream();
-	    ObjectInput oin = new ObjectInputStream(in);
-
-	    Date date = (Date) oin.readObject();
-	    System.out.println("Time on host " + host1 + " is " + date);
-	} catch (IOException e1) {
-	    failed = true;
-	    System.out.println(e1);
-	} catch (ClassNotFoundException e2) {
-	    failed = true;
-	    System.out.println(e2);
-	}
-	
-	if (failed) {
+	while(count != args.length - 1) {
 	    try {
-	    	Socket s = new Socket(host2, port2);
-	    	InputStream in = s.getInputStream();
+	    	String host = args[i]
+	    	int port = args[i+1]
+	    	Socket s = new Socket(host, port);
+		InputStream in = s.getInputStream();
 	    	ObjectInput oin = new ObjectInputStream(in);
 
 	    	Date date = (Date) oin.readObject();
-	    	System.out.println("Time on host " + host2 + " is " + date);
+	    	System.out.println("Time on host " + host + " is " + date);
 	    } catch (IOException e1) {
+	    	failed = true;
 	    	System.out.println(e1);
 	    } catch (ClassNotFoundException e2) {
-	    	System.out.println(e2);
+	    	failed = true;
+	     	System.out.println(e2);
 	    }
 	}
     }
