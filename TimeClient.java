@@ -18,7 +18,7 @@ public class TimeClient
 	    System.exit(1);
 	}
 	
-	count = 0;
+	int count = 0;
 	
 	while(count != args.length - 1) {
 	    try {
